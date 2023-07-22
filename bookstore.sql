@@ -72,3 +72,10 @@ new.date!="01012022"
 
 year_pub ("year should be current year")
 
+
+
+-- f.Write a procedure to list all the books published by a specific author during the specific year
+create procedure books(@author,@year)
+select b.title from book b,author a
+where b.year=@year and a.name=@author and b.author-id=a.author-id;
+exec books(“abc’,’2/01/2022’)
